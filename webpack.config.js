@@ -7,17 +7,19 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    rules: [{
-      test: /\.js?x/,
-      exclude: /node_modules/,
-      include: path.resolve('./client/src'),
-      loader: 'babel-loader',
-      options: {
-        presets: ['env', 'react']
+    rules: [
+      {
+        test: /\.js[x]?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['env', 'react']
+        }
       }
-    }]
+    ]
   },
   resolve: {
     extensions: ['.js', '.jsx']
-  }
+  },
+  mode: 'development'
 }
