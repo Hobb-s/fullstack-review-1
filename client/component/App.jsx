@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Login from '../component/Login';
+import Login from './Login';
+import Home from './Home';
 
 class App extends Component {
-  constructor () {
-    super()
+  constructor() {
+    super();
     this.state = {
       isLoggedIn: false
     }
@@ -11,13 +12,24 @@ class App extends Component {
 
   isLoggedInHandler() {
     this.setState({ isLoggedIn: true });
+    console.log('this is the app log in state: ', this.state.isLoggedIn);
   }
 
   render() {
     return (
       <div>
-        HELLO FROM REACT APP
-        <Login />
+        {
+          this.state.isLoggedIn ? 
+            <div>
+              <Home />
+            </div>
+            :
+            <div>
+              <Login 
+                toggleLoggedIn={this.isLoggedInHandler.bind(this)}
+              />
+            </div>
+        }
       </div>
     )
   }

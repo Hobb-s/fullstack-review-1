@@ -8,12 +8,11 @@ class Login extends Component {
       username: '',
       password: ''
     }
-
   }
 
   onChangeHandler(e) {
     this.setState({ [e.target.name]: e.target.value });
-    console.log('this is the state', this.state);
+    console.log('this state', this.state);
   }
 
   onSignUpHandler() {
@@ -26,8 +25,8 @@ class Login extends Component {
       .then( response => {
         console.log('Server replied with ...', response);
       })
-      .catch( error => {
-        console.log('Server errored out with ...', error);
+      .catch( err => {
+        console.log('Server errored out with ... ', err);
       })
   }
 
@@ -36,6 +35,8 @@ class Login extends Component {
     axios.get(`/api/user/login/${this.state.username}/${this.state.password}`)
       .then( response => {
         console.log('Server replied with ...', response);
+        console.log('isLoggedIn? ', response.status === 202);
+        response.status === 202 && this.props.toggleLoggedIn();
       })
       .catch( err => {
         console.log('Server errored out with ...', err);
@@ -43,27 +44,16 @@ class Login extends Component {
   }
 
   render() {
-    return(
+    return (
       <div>
         <div>Username: </div>
-        <input 
-          name='username'
-          onChange={ this.onChangeHandler.bind(this) }
-        />
+        <input name='username' onChange={this.onChangeHandler.bind(this)}/>
         <br/><br/>
-        <div>Password:</div>
-        <input 
-          name='password'
-          type='password'
-          onChange={ this.onChangeHandler.bind(this) }
-        />
+        <div>Password: </div>
+        <input name='password' type='password' onChange={this.onChangeHandler.bind(this)}/>
         <br/><br/>
-        <button 
-          onClick={ this.onSignUpHandler.bind(this)}
-        >Sign Up</button>
-        <button 
-          onClick={ this.onLoginHandler.bind(this)}
-        >Login</button>
+        <button onClick={this.onSignUpHandler.bind(this)}>Sign Up</button>
+        <button onClick={this.onLoginHandler.bind(this)}>Login</button>
       </div>
     )
   }

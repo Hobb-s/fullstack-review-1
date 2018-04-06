@@ -8,5 +8,4 @@ router.route('/user/signup')
 router.route('/user/login/:username/:password')
   .get(UserController.Login)
 
-
 module.exports = router;

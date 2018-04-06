@@ -1,39 +1,33 @@
 {
-  "name": "fullstack-review-1",
+  "name": "ReactMongoReview",
   "version": "1.0.0",
-  "description": "fullstack review",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon rest-server"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Hobb-s/fullstack-review-1.git"
+    "start": "webpack -w & nodemon rest-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Hobb-s/fullstack-review-1/issues"
-  },
-  "homepage": "https://github.com/Hobb-s/fullstack-review-1#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "bcrypt": "^1.0.3",
     "body-parser": "^1.18.2",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "mongoose": "^5.0.13",
     "nodemon": "^1.17.3",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "webpack": "^4.5.0"
   },
   "devDependencies": {
-    "webpack-cli": "^2.0.14"
+    "webpack-cli": "^2.0.13"
   }
 }
