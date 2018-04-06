@@ -10,7 +10,7 @@ const sampleSchema = new Schema({
 
 const sampleModel = mongoose.model('sample', sampleSchema);
 
-const sampleModelInstance = new sampleModel({ name: 'Testing', secret: 'Success'});
+const sampleModelInstance = new sampleModel({ name: 'TESTONE', secret: 'TESTWO'});
 
 sampleModelInstance.save()
   .then(() => {

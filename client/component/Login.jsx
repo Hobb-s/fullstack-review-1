@@ -24,10 +24,21 @@ class Login extends Component {
     }
     axios.post('/api/user/signup', payload)
       .then( response => {
-        console.log(`Server replied with ... ${response}`);
+        console.log('Server replied with ...', response);
       })
       .catch( error => {
-        console.log(`Server errored out with ... ${error}`);
+        console.log('Server errored out with ...', error);
+      })
+  }
+
+  onLoginHandler() {
+    console.log('fired login handler');
+    axios.get(`/api/user/login/${this.state.username}/${this.state.password}`)
+      .then( response => {
+        console.log('Server replied with ...', response);
+      })
+      .catch( err => {
+        console.log('Server errored out with ...', err);
       })
   }
 
@@ -50,6 +61,9 @@ class Login extends Component {
         <button 
           onClick={ this.onSignUpHandler.bind(this)}
         >Sign Up</button>
+        <button 
+          onClick={ this.onLoginHandler.bind(this)}
+        >Login</button>
       </div>
     )
   }
